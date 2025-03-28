@@ -1,0 +1,6 @@
+git init
+git remote add origin <https://github.com/Amoursushi/Augur/tree/baf5e01678f593e6795d57711d018084a891be66>
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git push -u origin main
