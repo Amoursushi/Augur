@@ -1,0 +1,78 @@
+npm create vite@latest augur-dashboard --template react
+cd augur-dashboard
+npm install
+npm run dev
+augur-dashboard/
+│── src/
+│   ├── components/
+│   │   ├── Dashboard.jsx
+│   │   ├── DistributorCard.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│── public/
+│── package.json
+│── index.htmlimport React, { useState, useEffect } from "react";
+import DistributorCard from "./DistributorCard";
+
+const Dashboard = () => {
+  const [distributors, setDistributors] = useState([]);
+
+  useEffect(() => {
+    // Mock Data (Replace with API call when backend is ready)
+    const mockData = [
+      { id: 1, name: "ABC Distributors", shippedLastMonth: 1200, forecasted: 1500, avgPerMonth: 1300 },
+      { id: 2, name: "XYZ Traders", shippedLastMonth: 900, forecasted: 1100, avgPerMonth: 1000 },
+    ];
+    setDistributors(mockData);
+  }, []);
+
+  return (
+    <div>
+      <h1>Augur System - Distributor Dashboard</h1>
+      {distributors.map((distributor) => (
+        <DistributorCard key={distributor.id} data={distributor} />
+      ))}
+    </div>
+  );
+};
+
+export default Dashboard;import React from "react";
+import Dashboard from "./components/Dashboard";
+
+const App = () => {
+  return (
+    <div>
+      <Dashboard />
+    </div>
+  );
+};
+
+export default App;import React from "react";
+
+const DistributorCard = ({ data }) => {
+  return (
+    <div style={{ border: "1px solid black", padding: "10px", margin: "10px" }}>
+      <h3>{data.name}</h3>
+      <p>Shipped Last Month: {data.shippedLastMonth}</p>
+      <p>Forecasted for Next Month: {data.forecasted}</p>
+      <p>Year-to-Date Average: {data.avgPerMonth}</p>
+    </div>
+  );
+};
+
+export default DistributorCard
+
+npm run dev
+
+cd path/to/your/augur-dashboard
+
+git init  # Initialize Git
+git add .  # Stage all files
+git commit -m "Initial commit"  # Commit changes
+git branch -M main  # Rename branch to main
+git remote add origin https://github.com/your-username/augur-dashboard.git  # Connect to GitHub
+git push -u origin main  # Push to GitHub
+
+git add .
+git commit -m "Updated dashboard UI"
+git push origin main
